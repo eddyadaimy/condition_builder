@@ -1,0 +1,70 @@
+<div class="customCol newConContainer">
+  <div *ngIf="rowsArray.controls.length > 1" class="innerParrentCondition">Condition Defined: {{selectedInnerOperator}}
+  </div>
+  <form [formGroup]="form" class="centralPark">
+    <div formArrayName="rows">
+      <div class="customRow" *ngFor="let row of rowsArray.controls; let i = index" [formGroupName]="i">
+        <mat-form-field>
+          <mat-label class="titleColor">Property Name</mat-label>
+          <input type="text" placeholder="Enter Property Name" matInput formControlName="property">
+        </mat-form-field>
+        <div>
+          <mat-form-field>
+            <mat-label class="titleColor">Operator</mat-label>
+            <mat-select formControlName="operator">
+              <mat-option *ngFor="let operator of operatorsOptions" [value]="operator">
+                {{operator}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <mat-form-field>
+          <mat-label class="titleColor">Value</mat-label>
+          <input type="number" placeholder="Enter Value" matInput formControlName="value">
+        </mat-form-field>
+
+        <div *ngIf="((rowsArray.controls.length < 2) || i == 0 )" class="customRow addIcon"
+          [ngClass]="{'disabledClickStyle': !checkIfCurrentRowIsFilled(rowsArray.controls[i]) }">
+          <select class="selectOpStyle" (change)="saveCondOp($event.target)">
+            <option [value]="'and'" [selected]="selectedInnerOperator === 'and'">and</option>
+            <option [value]="'or'" [selected]="selectedInnerOperator === 'or'">or</option>
+          </select>
+          <button *ngIf="rowsArray.controls.length < 2" class="addBtn">
+            <mat-icon fontIcon="add" class="addIcon" (click)="userClickOnNewRow()"></mat-icon>
+          </button>
+        </div>
+        <div *ngIf="(rowsArray.controls.length == 2 && i !==0)">
+          <button class="addBtn">
+            <mat-icon fontIcon="delete" class="deleteIcon" (click)="removeRow(i)"></mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div [ngClass]="{'disabledClickStyle':!areAllRowsFilled() }">
+      <div class="parentConditionSelector">
+        <select class="selectOpStyle" (change)="saveGeneralOpCond($event.target)">
+          <option [value]="'and'" [selected]="selectedGeneralOperator === 'and'">and</option>
+          <option [value]="'or'" [selected]="selectedGeneralOperator === 'or'">or</option>
+        </select>
+        <div *ngIf="selectedBindingOption" class="topSpacing innerParrentCondition">Binding Condition:
+          {{selectedGeneralOperator}}</div>
+      </div>
+      <div class="saveBtnContainer">
+        <mat-form-field *ngIf="preSavedConditions.length > 0" class="bindFC">
+          <mat-label class="titleColor">Bind with other predefined condition</mat-label>
+          <mat-select (valueChange)="handleBindingChanges($event)">
+            <mat-option [value]="null">None</mat-option>
+            <div *ngFor="let parentElement of preSavedConditions; let i = index">
+              <mat-option *ngFor="let innerParentElement of parentElement.rules;let j = index"
+                [value]="innerParentElement">
+                {{this.formatObject(innerParentElement)}}
+              </mat-option>
+            </div>
+          </mat-select>
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="saveForm()">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

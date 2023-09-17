@@ -1,0 +1,28 @@
+.header{
+  background-color: #152641;
+  color: #59df5b;
+  font-weight: 500;
+  font-size: larger;
+  padding: 20px;
+}
+
+.customRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.customCol{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  padding: 15px;
+}
+
+.dataStyle{
+  text-align: center;
+  font-size: large;
+  color: #152641;
+  padding-top: 15pX;
+}

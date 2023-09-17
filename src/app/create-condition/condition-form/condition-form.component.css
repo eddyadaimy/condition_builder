@@ -1,0 +1,131 @@
+mat-form-field{
+  width:300px;
+  padding: 0px 20px;
+}
+.customCol{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.customRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.customFormField{
+  width: max-content;
+}
+
+.newConContainer{
+  background-color: aliceblue;
+  background-color: #245c8e30;
+  border: 2px dashed #7476b6;
+  border-radius: 10px;
+  padding: 60px 20px 15px 20px;
+}
+
+
+
+.conditionContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.conditionSelector{
+  border-radius: 30PX;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border: none;
+}
+
+.addIcon{
+  align-self: baseline;
+  color: #2d309e;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  padding: 3px;
+  margin-top: 5px;
+}
+
+.addBtn{
+  height: 40px;
+  width: 40px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  justify-content: center;
+  border: 0px ;
+  align-items: center;
+  cursor: pointer;
+}
+
+.parentConditionSelector{
+  text-align: center;
+    padding-bottom: 18px;
+}
+
+.addContainer{
+  align-self: center;
+}
+
+.addNewSelectOperator{
+  padding-right: 5px;
+  align-self: center;
+}
+
+.selectOpStyle{
+  border: 0px;
+    background-color: #f1f1f1;
+    outline: none;
+    cursor: pointer;
+    height: 40px;
+  border-right: 3px solid #ffffff;
+  border-radius: 25px;
+
+}
+
+.disabledClickStyle{
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.deleteIcon{
+  align-self: center;
+  color: red;
+}
+
+.centralPark{
+  align-self:center
+}
+
+.innerParrentCondition{
+  color: rgb(89, 223, 91);
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  padding: 0px 0px 20px 0px;
+}
+
+.saveBtnContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.bindFC{
+  width: 100% !important;
+}
+
+.inline-item {
+  display: inline-block;
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.topSpacing{
+  padding-top: 13px;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "fd-test",
+  "short_name": "fd-test",
+  "description": "Create complex condition in an easy way",
+  "start_url": "/index.html",
+  "display": "standalone"
+}
